@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useState} from 'react'
-import './Adder.css'
+import './index.css'
 
 const Adder: React.FC = () => {
   const [first, setFirst] = useState<number>(0)

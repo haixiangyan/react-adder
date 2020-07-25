@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import Adder from './components/Adder'
+import Adder from './components/Adder/index'
 
 interface IProps { }
 
