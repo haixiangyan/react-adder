@@ -1,32 +1,22 @@
-import React, {FC, useState} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import Adder from './components/Adder'
 
 import './App.css'
 import RecordList from "./components/RecordList"
 import {TRecord} from "./components/Record"
+import {fetchRecordList} from "./api"
 
 interface IProps {
 }
 
-const DEFAULT_RECORD_LIST: TRecord[] = [
-  {
-    id: 1,
-    first: 1,
-    second: 1,
-    result: 2,
-    timestamp: new Date().getTime()
-  },
-  {
-    id: 2,
-    first: 2,
-    second: 3,
-    result: 5,
-    timestamp: new Date().getTime()
-  },
-]
-
 const App: FC<IProps> = () => {
-  const [recordList] = useState<TRecord[]>(DEFAULT_RECORD_LIST)
+  const [recordList, setRecordList] = useState<TRecord[]>([])
+
+  useEffect(() => {
+    fetchRecordList()
+      .then(res => setRecordList(res.data))
+      .catch(e => console.error(e))
+  }, [])
 
   return (
     <div className="app">
