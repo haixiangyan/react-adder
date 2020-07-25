@@ -4,24 +4,27 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const sql = 'select * from result'
+    const sql = 'select * from record'
 
     connection.query(sql, (error, results) => {
         if (error) console.error(error)
 
-        res.json({resultList: results, message: '成功获取'})
+        res.json({recordList: results, message: '成功获取'})
     })
 });
 
-router.post('/', (req, res) => {
-    const newResult = {
-        ...req.body,
-        createdAt: new Date()
-    }
+router.get('/create', (req, res) => {
+  const {first, second, result} = req.query
+  const newResult = {
+    first: Number(first),
+    second: Number(second),
+    result: Number(result),
+    createdAt: new Date()
+  }
 
-    const sql = 'insert into result set ?'
+  const sql = 'insert into record set ?'
 
-    connection.query(sql, newResult, (error) => {
+  connection.query(sql, newResult, (error) => {
         if (error) console.log(error)
 
         connection.commit(err => {
@@ -34,7 +37,6 @@ router.post('/', (req, res) => {
 
         res.json({message: '成功添加'})
     })
-
 })
 
 module.exports = router;
