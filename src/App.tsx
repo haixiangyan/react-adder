@@ -14,7 +14,7 @@ const App: FC<IProps> = () => {
 
   useEffect(() => {
     fetchRecordList()
-      .then(res => setRecordList(res.data))
+      .then(res => setRecordList(res.data.recordList))
       .catch(e => console.error(e))
   }, [])
 

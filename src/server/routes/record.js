@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
     connection.query(sql, (error, results) => {
         if (error) console.error(error)
 
-        res.json({resultList: results, message: '成功获取'})
+        res.header('Access-Control-Allow-Origin', '*')
+        res.json({recordList: results, message: '成功获取'})
     })
 });
 
@@ -32,6 +33,7 @@ router.post('/', (req, res) => {
             console.log('成功插入');
         })
 
+        res.header('Access-Control-Allow-Origin', '*')
         res.json({message: '成功添加'})
     })
 

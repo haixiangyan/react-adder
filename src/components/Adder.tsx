@@ -17,8 +17,7 @@ const Adder: React.FC<IProps> = () => {
       <input onChange={e => setFirst(Number(e.target.value))} type="text"/>
       <span>+</span>
       <input onChange={e => setSecond(Number(e.target.value))} type="text"/>
-      <span>=</span>
-
+      <button>=</button>
       <span>{add(first, second)}</span>
     </main>
   )
