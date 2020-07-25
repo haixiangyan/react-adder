@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import Adder from './components/Adder/index'
+import Adder from './components/Adder/Adder'
 
 import './App.css'
 
