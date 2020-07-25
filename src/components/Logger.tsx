@@ -12,7 +12,7 @@ const Logger: FC<IProps> = props => {
   return (
     <ul>
       {recordList.map(record => (
-        <Record record={record}/>
+        <Record key={record.timestamp} record={record}/>
       ))}
     </ul>
   )

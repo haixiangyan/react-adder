@@ -8,8 +8,23 @@ import {TRecord} from "./components/Record"
 interface IProps {
 }
 
+const DEFAULT_RECORD_LIST: TRecord[] = [
+  {
+    first: 1,
+    second: 1,
+    result: 2,
+    timestamp: new Date().getTime()
+  },
+  {
+    first: 2,
+    second: 3,
+    result: 5,
+    timestamp: new Date().getTime()
+  },
+]
+
 const App: FC<IProps> = () => {
-  const [recordList] = useState<TRecord[]>([])
+  const [recordList] = useState<TRecord[]>(DEFAULT_RECORD_LIST)
 
   return (
     <div className="app">
