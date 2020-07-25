@@ -1,30 +1,40 @@
+const connection = require("../db");
+
 const express = require('express');
 const router = express.Router();
 
-let resultList = []
+router.get('/', (req, res) => {
+    const sql = 'select * from result'
 
-router.get('/', (req, res, next) => {
-    res.json({resultList, message: '成功获取'})
+    connection.query(sql, (error, results) => {
+        if (error) console.error(error)
 
-    next()
+        res.json({resultList: results, message: '成功获取'})
+    })
 });
 
-router.post('/', (req, res, next) => {
-    const id = resultList.length
-    const createdAt = new Date().getTime()
+router.post('/', (req, res) => {
+    const newResult = {
+        ...req.body,
+        createdAt: new Date()
+    }
 
-    resultList = [
-        ...resultList,
-        {
-            id,
-            createdAt,
-            ...req.body
-        }
-    ].sort((r1, r2) => r2.timestamp - r1.timestamp)
+    const sql = 'insert into result set ?'
 
-    res.json({message: '成功添加'})
+    connection.query(sql, newResult, (error) => {
+        if (error) console.log(error)
 
-    next()
+        connection.commit(err => {
+            if (err) connection.rollback(() => {
+                throw err
+            })
+
+            console.log('成功插入');
+        })
+
+        res.json({message: '成功添加'})
+    })
+
 })
 
 module.exports = router;
