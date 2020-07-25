@@ -27,8 +27,7 @@ const App: FC<IProps> = () => {
         </div>
         <img
           src="https://us.123rf.com/450wm/larryrains/larryrains1901/larryrains190100027/118556689-laptop-a-vector-cartoon-illustration-of-a-computer-laptop-.jpg?ver=6"
-          width="200px"
-          alt="计算器"/>
+          width="200px"/>
       </h1>
 
       <h2>加法</h2>
