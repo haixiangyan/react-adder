@@ -5,6 +5,12 @@ interface IRes {
   message: string
 }
 
+interface IAddRecordReq {
+  first: number
+  second: number
+  result: number
+}
+
 interface IGetRecordListRes extends IRes {
   recordList: TRecord[]
 }
@@ -19,6 +25,6 @@ export const fetchRecordList = async (): Promise<AxiosResponse<IGetRecordListRes
   return await request.get('/records')
 }
 
-export const addRecord = async (data: TRecord): Promise<AxiosResponse<IRes>> => {
+export const postRecord = async (data: IAddRecordReq): Promise<AxiosResponse<IRes>> => {
   return await request.post('/records', {data})
 }
