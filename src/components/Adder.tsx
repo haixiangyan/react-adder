@@ -1,7 +1,12 @@
 import * as React from 'react'
 import {useState} from 'react'
 
-interface IProps {}
+interface IProps {
+}
+
+export const add = (first: number, second: number): number => {
+  return first + second
+}
 
 const Adder: React.FC<IProps> = () => {
   const [first, setFirst] = useState<number>(0)
@@ -14,7 +19,7 @@ const Adder: React.FC<IProps> = () => {
       <input onChange={e => setSecond(Number(e.target.value))} type="text"/>
       <span>=</span>
 
-      <span>{first + second}</span>
+      <span>{add(first, second)}</span>
     </main>
   )
 }
