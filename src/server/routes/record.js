@@ -25,18 +25,20 @@ router.get('/create', (req, res) => {
   const sql = 'insert into record set ?'
 
   connection.query(sql, newResult, (error) => {
-        if (error) console.log(error)
-
-        connection.commit(err => {
-            if (err) connection.rollback(() => {
-                throw err
-            })
-
-            console.log('成功插入');
-        })
-
-        res.json({message: '成功添加'})
-    })
+    if (!error) {
+      connection.commit(err => {
+        if (err) {
+          connection.rollback(e => {
+            console.error(e)
+          })
+        } else {
+          res.json({message: '成功添加'})
+        }
+      })
+    } else {
+      console.log(error)
+    }
+  })
 })
 
 module.exports = router;
