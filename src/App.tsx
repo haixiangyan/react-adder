@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react'
 import Adder from './components/Adder/Adder'
 
 import './App.css'
-import Logger from "./components/Logger"
+import RecordList from "./components/RecordList"
 import {TRecord} from "./components/Record"
 
 interface IProps {
@@ -10,12 +10,14 @@ interface IProps {
 
 const DEFAULT_RECORD_LIST: TRecord[] = [
   {
+    id: 1,
     first: 1,
     second: 1,
     result: 2,
     timestamp: new Date().getTime()
   },
   {
+    id: 2,
     first: 2,
     second: 3,
     result: 5,
@@ -34,7 +36,7 @@ const App: FC<IProps> = () => {
       <Adder/>
 
       <h2>记录</h2>
-      <Logger recordList={recordList}/>
+      <RecordList recordList={recordList}/>
     </div>
   )
 }

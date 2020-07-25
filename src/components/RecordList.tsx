@@ -6,16 +6,16 @@ interface IProps {
   recordList: TRecord[]
 }
 
-const Logger: FC<IProps> = props => {
+const RecordList: FC<IProps> = props => {
   const {recordList} = props
 
   return (
-    <ul>
+    <ul className="record-list">
       {recordList.map(record => (
-        <Record key={record.timestamp} record={record}/>
+        <Record key={record.id} record={record}/>
       ))}
     </ul>
   )
 }
 
-export default Logger
+export default RecordList

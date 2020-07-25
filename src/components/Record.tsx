@@ -2,6 +2,7 @@ import * as React from "react"
 import {FC} from "react"
 
 export type TRecord = {
+  id: number
   first: number
   second: number
   result: number
@@ -13,18 +14,17 @@ interface IProps {
 }
 
 const Record: FC<IProps> = props => {
-  const {first, second, result, timestamp} = props.record
+  const {id, first, second, result} = props.record
 
   return (
-    <li>
+    <li className="record">
+      <span style={{marginRight: 16}}>{id}.</span>
+
       <span>{first}</span>
       <span>+</span>
       <span>{second}</span>
       <span>=</span>
       <span>{result}</span>
-
-      <span> | </span>
-      <span>{new Date(timestamp).toISOString()}</span>
     </li>
   )
 }
