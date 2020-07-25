@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const sql = 'select * from result'
+    const sql = 'select * from record'
 
     connection.query(sql, (error, results) => {
         if (error) console.error(error)
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         createdAt: new Date()
     }
 
-    const sql = 'insert into result set ?'
+    const sql = 'insert into record set ?'
 
     connection.query(sql, newResult, (error) => {
         if (error) console.log(error)
