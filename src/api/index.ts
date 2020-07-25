@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from 'axios'
-import {TRecord} from "../components/Record"
+import {TRecord} from '../components/Record'
 
 interface IRes {
   message: string
@@ -26,5 +26,5 @@ export const fetchRecordList = async (): Promise<AxiosResponse<IGetRecordListRes
 }
 
 export const postRecord = async (data: IAddRecordReq): Promise<AxiosResponse<IRes>> => {
-  return await request.post('/records', {data})
+  return await request.get('/records/create', {params: data})
 }
