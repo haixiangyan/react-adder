@@ -1,20 +1,27 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 import Adder from './components/Adder/Adder'
 
 import './App.css'
+import Logger from "./components/Logger"
+import {TRecord} from "./components/Record"
 
-interface IProps {}
+interface IProps {
+}
 
 const App: FC<IProps> = () => {
+  const [recordList] = useState<TRecord[]>([])
+
   return (
     <div className="app">
       <h1 style={{textAlign: 'center'}}>很牛逼的一个计算器 v1.0</h1>
+
       <h2>加法</h2>
       <Adder/>
-      {/* 请在这里添加你的减法器 */}
-      <h2>减法</h2>
+
+      <h2>记录</h2>
+      <Logger recordList={recordList}/>
     </div>
   )
 }
 
-export default App;
+export default App
