@@ -11,10 +11,15 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const id = resultList.length
+    const createdAt = new Date().getTime()
 
     resultList = [
         ...resultList,
-        {id, ...req.body}
+        {
+            id,
+            createdAt,
+            ...req.body
+        }
     ].sort((r1, r2) => r2.timestamp - r1.timestamp)
 
     res.json({message: '成功添加'})
