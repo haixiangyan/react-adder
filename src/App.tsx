@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react'
-import Adder from './components/Adder/Adder'
+import Adder from './components/Adder'
 
 import './App.css'
 import RecordList from "./components/RecordList"
