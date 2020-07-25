@@ -2,7 +2,9 @@ import * as React from 'react'
 import {useState} from 'react'
 import './index.css'
 
-const Adder: React.FC = () => {
+interface IProps {}
+
+const Adder: React.FC<IProps> = () => {
   const [first, setFirst] = useState<number>(0)
   const [second, setSecond] = useState<number>(0)
 
