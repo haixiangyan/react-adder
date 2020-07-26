@@ -6,8 +6,10 @@ interface IProps {
   onChange: () => void
 }
 
-export const add = (first: number): number => {
-  return first + 1
+export const loopAdd = (first: number): number => {
+  const result = first + 1
+
+  return result >= 10 ? 0 : result
 }
 
 const Adder: React.FC<IProps> = props => {
@@ -16,7 +18,7 @@ const Adder: React.FC<IProps> = props => {
   const [result, setResult] = useState<number>(0)
 
   const onAdd = async () => {
-    const newResult = add(result)
+    const newResult = loopAdd(result)
 
     setResult(newResult)
 
