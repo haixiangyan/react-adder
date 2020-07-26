@@ -4,3 +4,15 @@
     width: 600px;
     border: 2px solid red;
 }
+
+.record-list {
+    border: 1px solid blue;
+}
+
+.record {
+    border-bottom: 1px solid blue;
+    margin: 8px;
+}
+
+.record:last-child {
+}
