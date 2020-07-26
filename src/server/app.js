@@ -12,6 +12,6 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/record', recordRouter)
+app.use('/records', recordRouter)
 
 module.exports = app;
