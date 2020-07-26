@@ -9,3 +9,13 @@
     border: 1px solid blue;
     margin: 8px;
 }
+
+.red-cross {
+    background: red;
+    color: white;
+}
+
+.green-dollar {
+    background: green;
+    color: white;
+}
