@@ -1,5 +1,8 @@
-import * as React from "react"
-import {FC} from "react"
+import * as React from 'react'
+import {FC} from 'react'
+import GreenBadge from './GreenBadge'
+import YellowBadge from './YellowBadge'
+import RedBadge from './RedBadge'
 
 export type TRecord = {
   id: number
@@ -16,6 +19,20 @@ interface IProps {
 const Record: FC<IProps> = props => {
   const {id, first, second, result} = props.record
 
+  const renderBadge = () => {
+    const remain = result % 3
+
+    const Mapper: { [key: number]: FC } = {
+      0: GreenBadge,
+      1: RedBadge,
+      2: YellowBadge
+    }
+
+    const Comp = Mapper[remain]
+
+    return <Comp/> || null
+  }
+
   return (
     <li className="record">
       <span style={{marginRight: 16}}>{id}.</span>
@@ -25,6 +42,8 @@ const Record: FC<IProps> = props => {
       <span>{second}</span>
       <span>=</span>
       <span>{result}</span>
+
+      <span>{renderBadge()}</span>
     </li>
   )
 }
