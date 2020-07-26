@@ -17,6 +17,12 @@ const App: FC<IProps> = () => {
       .catch(e => console.error(e))
   }, [])
 
+  const onChange = () => {
+    fetchRecordList()
+      .then(res => setRecordList(res.data.recordList))
+      .catch(e => console.error(e))
+  }
+
   return (
     <div className="app">
       <h1 style={{textAlign: 'center'}}>
@@ -29,7 +35,7 @@ const App: FC<IProps> = () => {
       </h1>
 
       <h2>加法</h2>
-      <Adder/>
+      <Adder onChange={onChange}/>
 
       <h2>记录</h2>
       <RecordList recordList={recordList}/>

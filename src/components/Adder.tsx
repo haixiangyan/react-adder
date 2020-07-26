@@ -1,35 +1,38 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {postRecord} from "../api"
+import {postRecord} from '../api'
 
 interface IProps {
+  onChange: () => void
 }
 
-export const add = (first: number, second: number): number => {
-  return first + second
+export const add = (first: number): number => {
+  return first + 1
 }
 
-const Adder: React.FC<IProps> = () => {
-  const [first, setFirst] = useState<number>(0)
-  const [second, setSecond] = useState<number>(0)
+const Adder: React.FC<IProps> = props => {
+  const {onChange} = props
+
   const [result, setResult] = useState<number>(0)
 
   const onAdd = async () => {
-    const result = add(first, second)
+    const newResult = add(result)
 
-    setResult(result)
+    setResult(newResult)
 
-    await postRecord({first, second, result})
+    await postRecord({
+      first: result,
+      second: 1,
+      result: newResult
+    })
+
+    onChange()
   }
 
   return (
     <main>
-      <input onChange={e => setFirst(Number(e.target.value))} type="text"/>
-      <span>+</span>
-      <input onChange={e => setSecond(Number(e.target.value))} type="text"/>
-      <button style={{margin: '0 8px', paddingLeft: 12, paddingRight: 12}}
-              onClick={onAdd}>
-        =
+      <button onClick={onAdd}>
+        +1
       </button>
       <span>{result}</span>
     </main>
