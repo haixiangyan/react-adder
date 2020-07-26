@@ -7,7 +7,9 @@ interface IProps {
 }
 
 export const add = (first: number): number => {
-  return first + 1
+  const result = first + 1
+
+  return result === 10 ? 0 : result
 }
 
 const Adder: React.FC<IProps> = props => {
