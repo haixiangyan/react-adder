@@ -6,6 +6,10 @@
 }
 
 .record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     border: 1px solid blue;
     margin: 8px;
 }
