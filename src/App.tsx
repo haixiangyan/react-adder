@@ -4,8 +4,6 @@ import {fetchRecordList} from './api'
 import './App.css'
 import RecordList from './components/RecordList'
 import {TRecord} from './components/Record'
-import Subtracter from './components/Subtracter'
-import Multiplier from './components/Multiplier'
 
 interface IProps {
 }
@@ -32,10 +30,6 @@ const App: FC<IProps> = () => {
 
       <h2>加法</h2>
       <Adder/>
-      <h2>减法</h2>
-      <Subtracter/>
-      <h2>乘法</h2>
-      <Multiplier/>
 
       <h2>记录</h2>
       <RecordList recordList={recordList}/>
