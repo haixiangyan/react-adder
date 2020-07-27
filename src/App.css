@@ -2,17 +2,10 @@
     margin: auto;
     padding: 24px;
     width: 600px;
-    border: 2px solid red;
-}
-
-.record-list {
-    border: 1px solid blue;
+    border: 2px solid black;
 }
 
 .record {
-    border-bottom: 1px solid blue;
+    border: 1px solid blue;
     margin: 8px;
-}
-
-.record:last-child {
 }
