@@ -18,13 +18,17 @@ const Record: FC<IProps> = props => {
 
   return (
     <li className="record">
-      <span style={{marginRight: 16}}>{id}.</span>
+      <span>Fuck1</span>
+
+      <span style={{marginRight: 8}}>{id}.</span>
 
       <span>{first}</span>
       <span>+</span>
       <span>{second}</span>
       <span>=</span>
       <span>{result}</span>
+
+      <span>Fuck2</span>
     </li>
   )
 }
